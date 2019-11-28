@@ -1,6 +1,6 @@
 #
 #
-# BioPerl module for Bio::DB::EMBL
+# BioPerl module for Bio::DB::RefSeq
 #
 # Please direct questions and support issues to <bioperl-l@bioperl.org> 
 #
@@ -53,9 +53,12 @@ Bio::DB::RefSeq - Database object interface for RefSeq retrieval
 =head1 DESCRIPTION
 
 Allows the dynamic retrieval of sequence objects L<Bio::Seq> from the
-RefSeq database using the dbfetch script at EBI:
+RefSeq nucleotide database using the dbfetch script at EBI:
 
 http://www.ebi.ac.uk/Tools/dbfetch/dbfetch
+
+At this time the module specifically retrieves nucleotide sequences 
+only.
 
 In order to make changes transparent we have host type (currently only
 ebi) and location (defaults to ebi) separated out.  This allows later
@@ -124,7 +127,7 @@ BEGIN {
     # you can add your own here theoretically.
     %HOSTS = (
 	       'dbfetch' => {
-		   baseurl => 'http://%s/Tools/dbfetch/dbfetch?db=refseq&style=raw',
+		   baseurl => 'http://%s/Tools/dbfetch/dbfetch?db=refseqn&style=raw',
 		   hosts   => {
 		       'ebi'  => 'www.ebi.ac.uk'
 		       }

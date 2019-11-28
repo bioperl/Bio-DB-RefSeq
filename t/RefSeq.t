@@ -6,7 +6,7 @@ use strict;
 BEGIN {
     use Bio::Root::Test;
 
-    test_begin(-tests => 8,
+    test_begin(-tests => 7,
                -requires_modules => [qw(IO::String
                                         LWP::UserAgent
                                         HTTP::Request::Common)]);
@@ -26,10 +26,10 @@ SKIP: {
     eval {
         ok defined($db = Bio::DB::RefSeq->new(-verbose=>$verbose));
         ok(defined($seq = $db->get_Seq_by_acc('NM_006732')));
-        is( $seq->length, 3776);
+        is( $seq->length, 3775);
         ok defined ($db->request_format('fasta'));
         ok(defined($seq = $db->get_Seq_by_acc('NM_006732')));
-        is( $seq->length, 3776);
+        is( $seq->length, 3775);
     };
     skip "Warning: Couldn't connect to RefSeq with Bio::DB::RefSeq.pm!", 6 if $@;
 }
